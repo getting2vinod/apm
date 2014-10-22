@@ -1,0 +1,181 @@
+[
+  {
+    "DNSName": "rldevfinbox.cloudapp.net",
+    "Location": "East Asia",
+    "VMName": "rldevFinBox",
+    "IPAddress": "",
+    "InstanceStatus": "StoppedDeallocated",
+    "Image": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd",
+    "OSDisk": {
+      "hostCaching": "ReadWrite",
+      "name": "rldevFinBox-rldevFinBox-0-201410020648080805",
+      "mediaLink": "https://portalvhdsykn4hx77zjmpf.blob.core.windows.net/vhds/rldevFinBox-rldevFinBox-2014-10-02.vhd",
+      "sourceImageName": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd",
+      "operatingSystem": "Windows"
+    },
+    "DataDisks": [],
+    "Network": {
+      "Endpoints": [
+        {
+          "localPort": 5986,
+          "name": "PowerShell",
+          "port": 5986,
+          "protocol": "tcp",
+          "enableDirectServerReturn": false
+        },
+        {
+          "localPort": 3389,
+          "name": "Remote Desktop",
+          "port": 58965,
+          "protocol": "tcp",
+          "enableDirectServerReturn": false
+        }
+      ]
+    }
+  },
+  {
+    "DNSName": "rldevadminbox.cloudapp.net",
+    "Location": "East Asia",
+    "VMName": "rldevAdminBox",
+    "IPAddress": "100.79.236.55",
+    "InstanceStatus": "ReadyRole",
+    "InstanceSize": "Small",
+    "Image": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201409.01-en.us-127GB.vhd",
+    "OSDisk": {
+      "hostCaching": "ReadWrite",
+      "name": "rldevAdminBox-rldevAdminBox-0-201410020647270697",
+      "mediaLink": "https://portalvhdsykn4hx77zjmpf.blob.core.windows.net/vhds/rldevAdminBox-rldevAdminBox-2014-10-02.vhd",
+      "sourceImageName": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201409.01-en.us-127GB.vhd",
+      "operatingSystem": "Windows"
+    },
+    "DataDisks": [],
+    "Network": {
+      "Endpoints": [
+        {
+          "localPort": 5986,
+          "name": "PowerShell",
+          "port": 5986,
+          "protocol": "tcp",
+          "virtualIPAddress": "23.99.97.224",
+          "enableDirectServerReturn": false
+        },
+        {
+          "localPort": 3389,
+          "name": "Remote Desktop",
+          "port": 64463,
+          "protocol": "tcp",
+          "virtualIPAddress": "23.99.97.224",
+          "enableDirectServerReturn": false
+        }
+      ]
+    }
+  },
+  {
+    "DNSName": "rldevitbox.cloudapp.net",
+    "Location": "East Asia",
+    "VMName": "rldevITBox",
+    "IPAddress": "",
+    "InstanceStatus": "StoppedDeallocated",
+    "Image": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd",
+    "OSDisk": {
+      "hostCaching": "ReadWrite",
+      "name": "rldevITBox-rldevITBox-0-201410020648360587",
+      "mediaLink": "https://portalvhdsykn4hx77zjmpf.blob.core.windows.net/vhds/rldevITBox-rldevITBox-2014-10-02.vhd",
+      "sourceImageName": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd",
+      "operatingSystem": "Windows"
+    },
+    "DataDisks": [],
+    "Network": {
+      "Endpoints": [
+        {
+          "localPort": 5986,
+          "name": "PowerShell",
+          "port": 5986,
+          "protocol": "tcp",
+          "enableDirectServerReturn": false
+        },
+        {
+          "localPort": 3389,
+          "name": "Remote Desktop",
+          "port": 63402,
+          "protocol": "tcp",
+          "enableDirectServerReturn": false
+        }
+      ]
+    }
+  },
+  {
+    "DNSName": "rldevbox.cloudapp.net",
+    "Location": "East Asia",
+    "VMName": "rldevbox",
+    "IPAddress": "100.80.114.76",
+    "InstanceStatus": "ReadyRole",
+    "InstanceSize": "Basic_A2",
+    "Image": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd",
+    "OSDisk": {
+      "hostCaching": "ReadWrite",
+      "name": "rldevbox-rldevbox-0-201410010452010470",
+      "mediaLink": "https://portalvhdsykn4hx77zjmpf.blob.core.windows.net/vhds/rldevbox-rldevbox-2014-10-01.vhd",
+      "sourceImageName": "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd",
+      "operatingSystem": "Windows"
+    },
+    "DataDisks": [],
+    "Network": {
+      "Endpoints": [
+        {
+          "localPort": 5986,
+          "name": "PowerShell",
+          "port": 5986,
+          "protocol": "tcp",
+          "virtualIPAddress": "137.116.160.21",
+          "enableDirectServerReturn": false
+        },
+        {
+          "localPort": 3389,
+          "name": "Remote Desktop",
+          "port": 52048,
+          "protocol": "tcp",
+          "virtualIPAddress": "137.116.160.21",
+          "enableDirectServerReturn": false
+        }
+      ]
+    }
+  },
+  {
+    "DNSName": "devcatalyst.cloudapp.net",
+    "Location": "East Asia",
+    "VMName": "devcatalyst",
+    "IPAddress": "10.0.0.4",
+    "InstanceStatus": "ReadyRole",
+    "InstanceSize": "Medium",
+    "Image": "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140927-en-us-30GB",
+    "OSDisk": {
+      "hostCaching": "ReadWrite",
+      "name": "devcatalyst-devcatalyst-0-201410131610200350",
+      "mediaLink": "https://rlazuredisk.blob.core.windows.net/vhds/devcatalyst-devcatalyst-2014-10-13.vhd",
+      "sourceImageName": "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_04_1-LTS-amd64-server-20140927-en-us-30GB",
+      "operatingSystem": "Linux"
+    },
+    "DataDisks": [],
+    "Network": {
+      "Endpoints": [
+        {
+          "localPort": 3000,
+          "name": "HTTP",
+          "port": 80,
+          "protocol": "tcp",
+          "virtualIPAddress": "23.101.0.245",
+          "enableDirectServerReturn": false
+        },
+        {
+          "localPort": 22,
+          "name": "SSH",
+          "port": 22,
+          "protocol": "tcp",
+          "virtualIPAddress": "23.101.0.245",
+          "enableDirectServerReturn": false
+        }
+      ]
+    }
+  }
+]

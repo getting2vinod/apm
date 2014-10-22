@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <title>Azure MP</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css">
+
+	<script src="/javascripts/jquery-1.11.1.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="/javascripts/bootstrap.min.js"></script>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+	
+	 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+	 <script src="/javascripts/vmscripts.js"></script>
+  </head>
+  <body style="padding-left:25px !important;padding-right:25px !important">
+  <style>
+    a{
+      color:white !important;
+      outline: 0;
+    }
+  </style>
+
+	<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+  <div class="container-fluid" style="color:white">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Azure VM Management</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <form class="navbar-form navbar-left hidden" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a><i class="fa fa-user" style="padding-right:5px"></i><%=username%></a></li>
+        <li><a href='/login' style='cursor:pointer'><i class="fa fa-sign-out" style="padding-right:5px"></i>Logout</a>
+         
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><br/>
+	<div class="container" style="width:100%;padding-left:0 !important;padding-right:0 !important">
+    <div class="row" style="padding-left:0 !important;padding-right:0 !important">
+		<% JSON.parse(vmlist).forEach(function(vm){ %>
+        <div class="col-sm-12 col-md-6 col-lg-3"  style="padding-left:0 !important;padding-right:15px !important">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <span class="pull-left">
+                  <%=vm.VMName%>
+                </span>
+                
+
+                <a class="fa fa-refresh pull-right refreshbtn" title="Refresh Card" id="refresh_<%=vm.VMName%>" style="cursor:pointer;"  onClick="refreshvm(this,'<%=vm.VMName%>');"></a> <a class="fa fa-desktop pull-right
+                <%if(vm.InstanceStatus != "ReadyRole"){
+                %>
+                hidden
+                <%}%>
+                " style="padding-right:10px;cursor:pointer" title="Download RDp" id="rdp_<%=vm.VMName%>" vmname='<%=vm.VMName%>' 
+                <%
+                var port = '';
+                for(var p = 0; p < vm.Network.Endpoints.length; p++){
+                 // port += vm.Network.Endpoints[p]["name"];
+                  if(vm.Network.Endpoints[p]["name"] == "Remote Desktop"){
+                    port = vm.Network.Endpoints[p]["port"];
+                  }
+                }
+                if(port == ''){
+                  port = "5573"; //setting a default port.
+                }
+                  %>
+                  rdpport='<%=port%>' href='/download/<%=vm.VMName%>/<%=port%>'></a>
+
+                <br/>
+
+              </h3>
+            </div>
+            <div class="panel-body panel-primary">
+              <h4>
+                IP : <strong class="vmip">
+                  <%=vm.IPAddress%>
+                </strong>
+              </h4>
+              <h4 style="display:inline-block">
+                Status :
+                <strong class="vmstate">
+                  <%if(vm.InstanceStatus == "RoleStateUnknown"){%>
+                    Unknown
+                    <%}else if(vm.InstanceStatus == "ReadyRole"){%>
+                      RUNNING
+                      <%}else{%>
+                        STOPPED
+                        <%}%>
+                </strong>
+                <i class="fa fa-spinner fa-lg fa-spin hidden actionspinner"></i>
+              </h4>
+            </div>
+
+            <div class="panel-footer clearfix">
+
+              <div style="margin-left:auto">
+                <div class="pull-left">
+                <button href="#" class="btn btn-success btn-sm startbtn" <%if(vm.InstanceStatus == "ReadyRole"){%> disabled="disabled" <%}%> onclick="vmaction(this,'start','<%=vm.VMName%>');">
+                  <i class="fa fa-play"> </i> Start
+                </button>
+                </div>
+				
+                <div class="pull-right">
+                  <button href="#"  style="padding-right:10px" class="btn btn-danger btn-sm shutdownbtn" <%if(vm.InstanceStatus == "RoleStateUnknown" || vm.InstanceStatus == "StoppedDeallocated"){%> disabled="disabled" <%}%>  onclick="vmaction(this,'shutdown','<%=vm.VMName%>');">
+                    <i class="fa fa-stop"> </i>
+                    Stop
+                  </button>
+
+                  <button href="#"  style="padding-right:10px" class="btn btn-warning btn-sm rebootbtn"  onclick="vmaction(this,'restart','<%=vm.VMName%>');">
+                    <i class="fa fa-repeat"> </i>
+                    Restart
+                  </button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <% });%>
+	</div>
+
+    </div><!-- /.container -->
+
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+  <head>
+    <title>Azure MP</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+
+      <!-- Optional theme -->
+      <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css"/>
+
+        <script src="/javascripts/jquery-1.11.1.min.js"></script>
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="/javascripts/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/stylesheets/style.css" />
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
+    <script src="/javascripts/vmscripts.js"></script>
+  </head>
+  <body style="padding-left:25px !important;padding-right:25px !important">
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed hidden" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#" style="color:white">Azure VM Management</a>
+        </div>
+        <div class="collapse navbar-collapse hidden">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
+            <li>
+              <a href="#about">About</a>
+            </li>
+            <li>
+              <a href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+    <br/>
+
+
+    <div class="container" style="width:100%;padding-left:0 !important;padding-right:0 !important">
+      <div class="row" style="padding-left:0 !important;padding-right:0 !important">
+
+
+
+
+       <%for(var i = 0; i < 20; i++){%>
+        <div class="col-sm-12 col-md-12 col-lg-3"  style="padding-left:0 !important;padding-right:0 !important">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">
+                <span class="pull-left">test</span> <a class="fa fa-refresh pull-right" title="Refresh Card"  onClick="refreshvm(this,'test');"></a> <a class="fa fa-desktop pull-right" style="padding-right:10px" title="Download RDp"></a>
+                <br/>
+              
+              </h3>
+            </div>
+            <div class="panel-body panel-primary">
+              <h4>
+                IP : <strong class="vmip">
+                  10.0.3.4
+                </strong>
+              </h4>
+              <h4>
+                Status :
+                <strong class="vmstate">
+                  Running
+                      </strong>
+              </h4>
+            </div>
+
+            <div class="panel-footer clearfix">
+
+              <div style="margin-left:auto">
+    
+                <button href="#" class="btn btn-success btn-sm ">
+                  <i class="fa fa-play"> </i> Start</button>
+                  <i class="fa fa-spinner fa-lg fa-spin hidden actionspinner"></i>
+
+                <div class="pull-right">
+                <button href="#"  style="padding-right:10px" class="btn btn-danger btn-sm">
+                  <i class="fa fa-stop"> </i>
+                  Stop</button>
+                
+                <button href="#"  style="padding-right:10px" class="btn btn-warning btn-sm ">
+                  <i class="fa fa-repeat"> </i>
+                  Restart
+                </button>
+                </div>
+            </div>
+
+            </div>
+          </div>
+        </div>
+        <%}%>
+
+      
+        
+
+    </div>
+    <!-- /.container -->
+  </body>
+</html>

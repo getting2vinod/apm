@@ -1,0 +1,3 @@
+full address:s:SSCORPWEB.cloudapp.net:5573
+prompt for credentials:i:1
+

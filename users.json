@@ -1,0 +1,13 @@
+[{
+	"azureadmin":["all"]
+},
+{
+	"vinod.nair":["all"]
+},
+{
+	"user1":["rldevAdminBox","rldevITBox","corpweb"]
+}
+,
+{
+	"user2":["rldevITBox"]
+}]
